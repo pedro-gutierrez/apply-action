@@ -16,7 +16,7 @@ echo $INPUT_KUBECONFIG | base64 -d > ~/.kube/config
 
 echo "Creating Docker secret for Kubernetes..."
 kubectl create secret generic docker \
-    --from-file=.dockerconfigjson=~/.docker/config.json> \
+    --from-file=.dockerconfigjson=/root/.docker/config.json \
     --type=kubernetes.io/dockerconfigjson
 
 echo "Configuring deployment version..."
