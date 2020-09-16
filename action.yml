@@ -1,0 +1,14 @@
+name: 'apply-action'
+description: 'Deploy to Kubernetes'
+author: 'Pedro Gutiérrez'
+branding:
+  icon: 'cloud'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+inputs:
+  password:
+    description: "your personal token"
+  kubeconfig:
+    description: "Base64 encoded content of your kubeconfig"
