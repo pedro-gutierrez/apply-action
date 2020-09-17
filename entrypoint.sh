@@ -14,12 +14,9 @@ echo "Configuring Kubernetes CLI..."
 mkdir -p ~/.kube
 echo $INPUT_KUBECONFIG | base64 -d > ~/.kube/config
 
-id 
-echo home=$HOME
-
 echo "Creating Docker secret for Kubernetes..."
 kubectl create secret generic docker \
-    --from-file=.dockerconfigjson=/root/.docker/config.json \
+    --from-file=.dockerconfigjson=/github/home/.docker/config.json \
     --type=kubernetes.io/dockerconfigjson
 
 echo "Configuring deployment version..."
