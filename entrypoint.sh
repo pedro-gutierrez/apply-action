@@ -15,6 +15,7 @@ mkdir -p ~/.kube
 echo $INPUT_KUBECONFIG | base64 -d > ~/.kube/config
 
 echo "Creating Docker secret for Kubernetes..."
+kubectl delete secret docker --ignore-not-found
 kubectl create secret generic docker \
     --from-file=.dockerconfigjson=/github/home/.docker/config.json \
     --type=kubernetes.io/dockerconfigjson
